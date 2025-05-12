@@ -1,39 +1,81 @@
-const navLinks = document.querySelectorAll("nav > a");
-let currentIndex = 0;
-let startX = 0;
-
-// Function to activate a specific link's image
-function activateLink(index) {
-  navLinks.forEach((link, i) => {
-    const wrapper = link.querySelector(".img-wrapper");
-    if (wrapper) {
-      if (i === index) {
-        wrapper.classList.add("active");
-      } else {
-        wrapper.classList.remove("active");
-      }
-    }
-  });
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-// Initial activation (first link)
-activateLink(currentIndex);
+body {
+  background-color: #ffffff;
+  overflow: hidden;
+}
 
-// Swipe detection for touch devices
-document.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
+nav {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+}
 
-document.addEventListener("touchend", (e) => {
-  const endX = e.changedTouches[0].clientX;
-  const diffX = endX - startX;
+nav > a {
+  color: rgb(109, 109, 109);
+  font-family: "Neue Montreal", sans-serif;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase;
+  padding: 2em 2em;
+  font-weight: 500;
+  mix-blend-mode: difference;
+  text-align: center;
+  overflow: visible;
+}
 
-  if (Math.abs(diffX) > 50) {
-    if (diffX < 0 && currentIndex < navLinks.length - 1) {
-      currentIndex++;
-    } else if (diffX > 0 && currentIndex > 0) {
-      currentIndex--;
-    }
-    activateLink(currentIndex);
-  }
-});
+nav > a:hover {
+  color: #fff;
+}
+
+nav > a > span {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+}
+
+nav a .img-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: all 250ms ease;
+  pointer-events: none;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+nav a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(2.5);
+  transition: transform 2000ms cubic-bezier(0.075, 0.82, 0.165, 1.5), opacity 250ms;
+  pointer-events: none;
+}
+
+nav a:hover .img-wrapper,
+nav a .img-wrapper.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+nav a:hover img,
+nav a .img-wrapper.active img {
+  opacity: 1;
+  transform: scale(1.5);
+}
