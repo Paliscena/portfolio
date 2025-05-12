@@ -1,14 +1,19 @@
 const nav = document.getElementById("nav");
 
 for (const link of nav.getElementsByTagName("a")) {
-  link.onmousemove = (e) => {
+  const img = link.querySelector("img");
+
+  link.addEventListener("mousemove", (e) => {
     const rect = link.getBoundingClientRect();
-    const img = link.querySelector("img");
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    // You can uncomment and customize this if you want hover image movement
-    // img.style.left = `${e.clientX - rect.left}px`;
-    // img.style.top = `${e.clientY - rect.top}px`;
-  };
+    img.style.left = `${x}px`;
+    img.style.top = `${y}px`;
+  });
+
+  link.addEventListener("mouseleave", () => {
+    img.style.left = `0px`;
+    img.style.top = `0px`;
+  });
 }
-
-// Removed window.onmousemove that caused nav to slide left/right
