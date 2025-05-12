@@ -1,82 +1,39 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+const navLinks = document.querySelectorAll("nav > a");
+let currentIndex = 0;
+let startX = 0;
+
+// Function to activate a specific link's image
+function activateLink(index) {
+  navLinks.forEach((link, i) => {
+    const wrapper = link.querySelector(".img-wrapper");
+    if (wrapper) {
+      if (i === index) {
+        wrapper.classList.add("active");
+      } else {
+        wrapper.classList.remove("active");
+      }
+    }
+  });
 }
 
-body {
-  background-color: #ffffff;
-  overflow: hidden;
-}
+// Initial activation (first link)
+activateLink(currentIndex);
 
-nav {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: row;
-}
+// Swipe detection for touch devices
+document.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
 
-nav > a {
-  color: rgb(109, 109, 109);
-  font-family: "Neue Montreal", sans-serif;
-  text-decoration: none;
-  position: relative;
-  text-transform: uppercase;
-  padding: 2em 2em;
-  font-weight: 500;
-  mix-blend-mode: difference;
-  text-align: center;
-  overflow: visible;
-}
+document.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diffX = endX - startX;
 
-nav > a:hover {
-  color: #fff;
-}
-
-nav > a > span {
-  position: relative;
-  z-index: 2;
-  width: 400px;
-}
-
-/* WRAPPER FOR HOVER IMAGE */
-nav a .img-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.5); /* center & scale down */
-  opacity: 0;
-  transition: all 250ms ease;
-  pointer-events: none;
-  width: 300px;
-  height: 400px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* IMAGE INSIDE WRAPPER */
-nav a img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0;
-  transform: scale(2.5);
-  transition: transform 2000ms cubic-bezier(0.075, 0.82, 0.165, 1.5), opacity 250ms;
-  pointer-events: none;
-}
-
-/* HOVER STATE */
-nav a:hover .img-wrapper {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1); /* full size & still centered */
-}
-
-nav a:hover img {
-  opacity: 1;
-  transform: scale(1.5);
-}
+  if (Math.abs(diffX) > 50) {
+    if (diffX < 0 && currentIndex < navLinks.length - 1) {
+      currentIndex++;
+    } else if (diffX > 0 && currentIndex > 0) {
+      currentIndex--;
+    }
+    activateLink(currentIndex);
+  }
+});
