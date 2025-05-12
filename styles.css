@@ -28,6 +28,9 @@ nav > a {
   font-weight: 500;
   mix-blend-mode: difference;
   text-align: center;
+
+  /* Ensure links don’t clip image hover positioning */
+  overflow: visible;
 }
 
 nav > a:hover {
@@ -42,6 +45,8 @@ nav > a > span {
 
 nav a .img-wrapper {
   position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
   transition: all 250ms;
@@ -49,6 +54,7 @@ nav a .img-wrapper {
   width: 300px;
   height: 400px;
   overflow: hidden;
+  z-index: 1;
 }
 
 nav a img {
