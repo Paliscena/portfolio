@@ -1,13 +1,39 @@
-// ✅ OPTIONAL CLEAN JS (not required for hover image behavior)
+const navLinks = document.querySelectorAll("nav > a");
+let currentIndex = 0;
+let startX = 0;
 
-const nav = document.getElementById("nav");
-
-for (const link of nav.getElementsByTagName("a")) {
-  const img = link.querySelector("img");
-
-  link.addEventListener("mouseleave", () => {
-    // Reset image if needed
-    img.style.left = "0";
-    img.style.top = "0";
+// Function to activate a specific link's image
+function activateLink(index) {
+  navLinks.forEach((link, i) => {
+    const wrapper = link.querySelector(".img-wrapper");
+    if (wrapper) {
+      if (i === index) {
+        wrapper.classList.add("active");
+      } else {
+        wrapper.classList.remove("active");
+      }
+    }
   });
 }
+
+// Initial activation (first link)
+activateLink(currentIndex);
+
+// Swipe detection for touch devices
+document.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+document.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diffX = endX - startX;
+
+  if (Math.abs(diffX) > 50) {
+    if (diffX < 0 && currentIndex < navLinks.length - 1) {
+      currentIndex++;
+    } else if (diffX > 0 && currentIndex > 0) {
+      currentIndex--;
+    }
+    activateLink(currentIndex);
+  }
+});
