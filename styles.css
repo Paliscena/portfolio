@@ -88,10 +88,11 @@ nav a:hover img {
 @media (max-width: 768px) {
   html,
   body {
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
-    border: 5px solid red;
+    margin: 0;
+    padding: 0;
   }
 
   nav {
@@ -100,7 +101,7 @@ nav a:hover img {
     left: 0;
     height: 100vh;
     width: 100vw;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
     display: flex;
     flex-direction: row;
@@ -108,18 +109,18 @@ nav a:hover img {
     scroll-behavior: smooth;
     padding: 0;
     gap: 0;
-    background-color: #000;
+    background: black;
   }
 
   nav > a {
     flex: 0 0 100%;
     width: 100vw;
     height: 100vh;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     position: relative;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
   }
 
@@ -129,13 +130,13 @@ nav a:hover img {
     text-align: center;
     font-size: 1rem;
     font-weight: 600;
-    padding: 1.25rem;
+    padding: 1rem;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
     text-transform: uppercase;
   }
 
@@ -145,8 +146,6 @@ nav a:hover img {
     left: 0;
     width: 100vw;
     height: 100vh;
-    transform: none !important;
-    opacity: 1 !important;
     display: block;
     pointer-events: none;
     z-index: 1;
@@ -159,6 +158,7 @@ nav a:hover img {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    display: block;
     opacity: 1 !important;
     transform: none !important;
   }
