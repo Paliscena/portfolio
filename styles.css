@@ -82,6 +82,21 @@ nav a:hover img {
   transform: scale(1.5);
 }
 
+header {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.logo {
+  width: 120px; /* adjust as needed */
+  height: auto;
+  display: block;
+}
+
+
 /* Mobile: active image from swipe */
 @media (hover: none) and (pointer: coarse) {
   nav a .img-wrapper.active {
