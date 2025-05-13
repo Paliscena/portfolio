@@ -83,18 +83,22 @@ body {
     overflow: hidden;
     background-color: black;
   }
-  .mobile-nav a > span {
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    z-index: 10;
-  }
+.mobile-nav a > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  z-index: 10;
+  max-width: 90vw;
+  line-height: 1.4;
+}
+
   .mobile-nav a .img-wrapper {
     position: absolute;
     inset: 0;
