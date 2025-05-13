@@ -1,75 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>minimal hovers</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-  <img src="https://i.postimg.cc/wvLyqvnR/ctsknightlogo-02.png" alt="Logo" class="logo" />
-</header>
-    <nav id="nav">
-      <a href="#">
-        <span>GOOGLE X ALL-STAR WEEKEND</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/g2g89nCc/GOOGLEASWHOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>NIKE X WNBA</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/T1y5X0XT/NIKEWNBAHOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>NIKE X LEBRON JAMES</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/qMXvYSPp/ARTBASELHOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>HOT97</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/vBgNxRr9/HOT97-HOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>FYL.NYC</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/vZxbyKj1/FYLHOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>STASHED</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/FHdn1Xh4/STASHEDHOVER.jpg"
-          />
-        </div>
-      </a>
-      <a href="#">
-        <span>CAMP HIGH</span>
-        <div class="img-wrapper">
-          <img
-            src="https://i.postimg.cc/YCHmL1HC/CAMPHIGHHOVER.jpg"
-          />
-        </div>
-      </a>
-      
-    </nav>
-    <script src="./script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swipe Preview</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Logo -->
+  <header>
+    <img src="logo.png" alt="Logo" class="logo" />
+  </header>
+
+  <!-- Desktop Navigation -->
+  <nav id="nav">
+    <a href="#"><span>Home</span><div class="img-wrapper"><img src="img1.jpg" /></div></a>
+    <a href="#"><span>About</span><div class="img-wrapper"><img src="img2.jpg" /></div></a>
+    <a href="#"><span>Work</span><div class="img-wrapper"><img src="img3.jpg" /></div></a>
+  </nav>
+
+  <!-- Mobile Story Swiper -->
+  <div class="story-slider">
+    <div class="story-slide"><img src="img1.jpg" alt="Story 1" /></div>
+    <div class="story-slide"><img src="img2.jpg" alt="Story 2" /></div>
+    <div class="story-slide"><img src="img3.jpg" alt="Story 3" /></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
