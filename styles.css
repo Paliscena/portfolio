@@ -144,13 +144,17 @@ nav a:hover img {
     overflow: hidden;
   }
 
-  nav a .img-wrapper img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    display: block;
-    opacity: 1 !important;
-    transform: none !important;
-    background: transparent;
+nav a .img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  opacity: 1 !important;
+  transform: none !important;
+  background: transparent;
   }
 }
