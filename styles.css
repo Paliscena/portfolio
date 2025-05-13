@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,6 @@ body {
   background-color: #ffffff;
 }
 
-/* Desktop layout */
 nav {
   position: absolute;
   top: 40%;
@@ -59,7 +59,7 @@ nav a .img-wrapper {
   z-index: 1;
 }
 
-nav a .img-wrapper img {
+nav a img {
   position: absolute;
   top: 0;
   left: 0;
@@ -72,7 +72,6 @@ nav a .img-wrapper img {
   pointer-events: none;
 }
 
-/* Hover effect */
 nav a:hover .img-wrapper {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
@@ -83,19 +82,20 @@ nav a:hover img {
   transform: scale(1.5);
 }
 
-/* Mobile fullscreen swipe */
+/* Mobile override */
 @media (max-width: 768px) {
   html, body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background: black;
     margin: 0;
     padding: 0;
-    background-color: #000;
-    touch-action: pan-y;
   }
 
   nav {
+    position: fixed;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -103,7 +103,7 @@ nav a:hover img {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    background: #000;
+    background: black;
   }
 
   nav > a {
@@ -116,7 +116,7 @@ nav a:hover img {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: #000;
+    background-color: black;
   }
 
   nav > a > span {
@@ -142,19 +142,17 @@ nav a:hover img {
     display: block !important;
     z-index: 1;
     overflow: hidden;
+    transform: none !important;
   }
 
-nav a .img-wrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  opacity: 1 !important;
-  transform: none !important;
-  background: transparent;
+  nav a .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    opacity: 1 !important;
+    transform: none !important;
+    background: transparent;
   }
 }
