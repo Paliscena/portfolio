@@ -45,20 +45,21 @@ nav > a > span {
   width: 100%;
 }
 
-nav a .img-wrapper img {
+nav a .img-wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
-  transform: scale(2.5);
-  display: none;
+  transition: all 250ms ease;
   pointer-events: none;
+  width: 340px;
+  height: 440px;
+  overflow: hidden;
+  z-index: 1;
 }
 
-nav a img {
+nav a .img-wrapper img {
   position: absolute;
   top: 0;
   left: 0;
@@ -159,5 +160,6 @@ nav a:hover img {
     opacity: 1 !important;
     transform: none !important;
     display: block;
+    pointer-events: none;
   }
 }
