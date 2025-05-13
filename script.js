@@ -2,6 +2,7 @@ const navLinks = document.querySelectorAll("nav > a");
 let currentIndex = 0;
 let startX = 0;
 
+// Detect if touch device
 const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
 function activateLink(index) {
@@ -17,8 +18,9 @@ function activateLink(index) {
         img.style.transform = "none";
       } else {
         wrapper.classList.remove("active");
-        img.style.opacity = "0";
-        img.style.display = "none";
+        img.style.opacity = "";
+        img.style.display = "";
+        img.style.transform = "";
       }
     }
   });
