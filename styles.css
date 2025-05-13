@@ -7,11 +7,9 @@
 body {
   background-color: #ffffff;
   overflow-x: hidden;
-  height: 100vh;
-  width: 100vw;
 }
 
-/* -------- DESKTOP NAV -------- */
+/* ----------------- DESKTOP NAV ----------------- */
 nav {
   position: absolute;
   top: 40%;
@@ -75,24 +73,22 @@ nav a img {
   pointer-events: none;
 }
 
-/* -------- DESKTOP HOVER -------- */
+/* Hover behavior */
 nav a:hover .img-wrapper {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
-
 nav a:hover img {
   opacity: 1;
   transform: scale(1.5);
 }
 
-/* -------- MOBILE STORY MODE -------- */
+/* ----------------- MOBILE STORY STYLE ----------------- */
 @media (max-width: 768px) {
   html,
   body {
-    margin: 0;
-    padding: 0;
     height: 100%;
+    width: 100%;
     overflow: hidden;
   }
 
@@ -117,42 +113,49 @@ nav a:hover img {
     width: 100vw;
     height: 100vh;
     scroll-snap-align: start;
-    position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-end;
-    padding: 0;
-    background: #000;
+    align-items: center;
+    background-color: #000;
+    position: relative;
   }
 
   nav > a > span {
     display: block;
     width: 100%;
     text-align: center;
-    padding: 1.25rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
-    text-transform: uppercase;
+    padding: 1.5rem;
     color: white;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    text-transform: uppercase;
   }
 
   nav a .img-wrapper {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 1 !important;
+    width: 100vw;
+    height: 100vh;
     transform: none !important;
+    opacity: 1 !important;
+    display: block;
     pointer-events: none;
     z-index: 1;
   }
 
   nav a img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     opacity: 1 !important;
     transform: none !important;
