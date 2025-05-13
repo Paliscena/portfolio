@@ -3,62 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Swipe Test</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-      background: #000;
-    }
-
-    nav {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-    }
-
-    nav a {
-      flex: 0 0 100vw;
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-      scroll-snap-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    nav .img-wrapper {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    nav .img-wrapper img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      display: block;
-    }
-  </style>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav>
+  <nav id="nav">
     <a href="#">
+      <span>GOOGLE X ALL-STAR WEEKEND</span>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80" alt="Test 1" />
+        <img src="https://i.postimg.cc/g2g89nCc/GOOGLEASWHOVER.jpg" />
       </div>
     </a>
     <a href="#">
+      <span>NIKE X WNBA</span>
       <div class="img-wrapper">
-        <img src="https://images.unsplash.com/photo-1612832020805-61f9a5e98f0d?auto=format&fit=crop&w=800&q=80" alt="Test 2" />
+        <img src="https://i.postimg.cc/T1y5X0XT/NIKEWNBAHOVER.jpg" />
+      </div>
+    </a>
+    <a href="#">
+      <span>NIKE X LEBRON JAMES</span>
+      <div class="img-wrapper">
+        <img src="https://i.postimg.cc/qMXvYSPp/ARTBASELHOVER.jpg" />
+      </div>
+    </a>
+    <a href="#">
+      <span>HOT97</span>
+      <div class="img-wrapper">
+        <img src="https://i.postimg.cc/vBgNxRr9/HOT97-HOVER.jpg" />
+      </div>
+    </a>
+    <a href="#">
+      <span>FYL.NYC</span>
+      <div class="img-wrapper">
+        <img src="https://i.postimg.cc/vZxbyKj1/FYLHOVER.jpg" />
+      </div>
+    </a>
+    <a href="#">
+      <span>STASHED</span>
+      <div class="img-wrapper">
+        <img src="https://i.postimg.cc/FHdn1Xh4/STASHEDHOVER.jpg" />
+      </div>
+    </a>
+    <a href="#">
+      <span>CAMP HIGH</span>
+      <div class="img-wrapper">
+        <img src="https://i.postimg.cc/YCHmL1HC/CAMPHIGHHOVER.jpg" />
       </div>
     </a>
   </nav>
+  <script src="script.js"></script>
 </body>
 </html>
