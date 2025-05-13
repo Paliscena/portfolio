@@ -86,10 +86,9 @@ nav a:hover img {
 
 /* ------------------- MOBILE FULLSCREEN SWIPE ------------------- */
 @media (max-width: 768px) {
-  html,
-  body {
-    height: 100vh;
-    width: 100vw;
+  html, body {
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -97,46 +96,41 @@ nav a:hover img {
 
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow-x: auto;
-    overflow-y: hidden;
+    inset: 0;
     display: flex;
     flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0;
-    gap: 0;
-    background: black;
+    background-color: #000;
   }
 
   nav > a {
     flex: 0 0 100%;
     width: 100vw;
     height: 100vh;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
     overflow: hidden;
+    background-color: black;
   }
 
   nav > a > span {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 1rem;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 10;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
     text-transform: uppercase;
   }
 
@@ -144,22 +138,24 @@ nav a:hover img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
     height: 100vh;
-    display: block;
-    pointer-events: none;
+    width: 100vw;
     z-index: 1;
+    display: block;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: none;
   }
 
   nav a .img-wrapper img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    display: block;
     opacity: 1 !important;
     transform: none !important;
+    display: block;
   }
 }
