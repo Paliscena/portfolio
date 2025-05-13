@@ -85,15 +85,25 @@ nav a:hover img {
 
 /* Mobile fullscreen swipe */
 @media (max-width: 768px) {
+  html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    touch-action: pan-y;
+  }
+
   nav {
-    position: fixed;
-    inset: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    background-color: #000;
+    background: #000;
   }
 
   nav > a {
@@ -130,21 +140,17 @@ nav a:hover img {
     width: 100vw;
     height: 100vh;
     display: block !important;
-    overflow: hidden;
     z-index: 1;
-    transform: none !important;
+    overflow: hidden;
   }
 
   nav a .img-wrapper img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    object-fit: cover !important;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
     opacity: 1 !important;
     transform: none !important;
-    display: block !important;
-    background-color: red !important; /* Keep for confirmation */
+    background: transparent;
   }
 }
