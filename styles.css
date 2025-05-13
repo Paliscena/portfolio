@@ -15,7 +15,6 @@ nav {
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
   justify-content: center;
   gap: 2rem;
   padding: 1rem;
@@ -27,13 +26,12 @@ nav > a {
   text-decoration: none;
   position: relative;
   text-transform: uppercase;
-  padding: 2em 3em; /* wider spacing */
+  padding: 2em 3em;
   font-weight: 500;
   mix-blend-mode: difference;
   text-align: center;
   overflow: visible;
-  flex: 1 1 auto;
-  min-width: 120px;
+  flex-shrink: 0;
 }
 
 nav > a:hover {
@@ -46,7 +44,6 @@ nav > a > span {
   width: 100%;
 }
 
-/* IMAGE WRAPPER */
 nav a .img-wrapper {
   position: absolute;
   top: 50%;
@@ -55,13 +52,12 @@ nav a .img-wrapper {
   opacity: 0;
   transition: all 250ms ease;
   pointer-events: none;
-  width: 340px; /* slightly wider image */
+  width: 340px;
   height: 440px;
   overflow: hidden;
   z-index: 1;
 }
 
-/* IMAGE */
 nav a img {
   position: absolute;
   top: 0;
@@ -75,35 +71,26 @@ nav a img {
   pointer-events: none;
 }
 
-/* HOVER + ACTIVE */
-nav a:hover .img-wrapper,
-nav a .img-wrapper.active {
+/* Desktop hover */
+nav a:hover .img-wrapper {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
-nav a:hover img,
-nav a .img-wrapper.active img {
+nav a:hover img {
   opacity: 1;
   transform: scale(1.5);
 }
 
-/* MOBILE TWEAKS */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 1.5rem;
+/* Mobile: active image from swipe */
+@media (hover: none) and (pointer: coarse) {
+  nav a .img-wrapper.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 
-  nav > a {
-    padding: 1.5em 2em;
-    font-size: 0.95rem;
-  }
-
-  nav a .img-wrapper {
-    width: 300px;
-    height: 400px;
+  nav a .img-wrapper.active img {
+    opacity: 1;
+    transform: scale(1.5);
   }
 }
