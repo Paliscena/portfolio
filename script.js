@@ -2,7 +2,6 @@ const navLinks = document.querySelectorAll("nav > a");
 let currentIndex = 0;
 let startX = 0;
 
-// Detect if touch device
 const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
 function activateLink(index) {
@@ -10,18 +9,19 @@ function activateLink(index) {
     const wrapper = link.querySelector(".img-wrapper");
     const img = wrapper?.querySelector("img");
 
-    if (wrapper && img) {
-      if (i === index && isTouchDevice) {
-        wrapper.classList.add("active");
-        img.style.opacity = "1";
-        img.style.display = "block";
-        img.style.transform = "none";
-      } else {
-        wrapper.classList.remove("active");
-        img.style.opacity = "";
-        img.style.display = "";
-        img.style.transform = "";
-      }
+    if (!wrapper || !img) return;
+
+    if (i === index && isTouchDevice) {
+      wrapper.classList.add("active");
+      img.style.opacity = "1";
+      img.style.display = "block";
+      img.style.transform = "none";
+      img.style.objectFit = "cover";
+    } else {
+      wrapper.classList.remove("active");
+      img.style.opacity = "0";
+      img.style.display = "none";
+      img.style.transform = "scale(2.5)";
     }
   });
 }
