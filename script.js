@@ -2,32 +2,20 @@ const navLinks = document.querySelectorAll("nav > a");
 let currentIndex = 0;
 let startX = 0;
 
-const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
-function activateLink(index) {
+function activateSlide(index) {
   navLinks.forEach((link, i) => {
-    const wrapper = link.querySelector(".img-wrapper");
-    const img = wrapper?.querySelector("img");
-
-    if (!wrapper || !img) return;
-
-    if (i === index && isTouchDevice) {
-      wrapper.classList.add("active");
-      img.style.opacity = "1";
-      img.style.display = "block";
-      img.style.transform = "none";
-      img.style.objectFit = "cover";
+    if (i === index && isTouch) {
+      link.classList.add("active");
     } else {
-      wrapper.classList.remove("active");
-      img.style.opacity = "0";
-      img.style.display = "none";
-      img.style.transform = "scale(2.5)";
+      link.classList.remove("active");
     }
   });
 }
 
-if (isTouchDevice) {
-  activateLink(currentIndex);
+if (isTouch) {
+  activateSlide(currentIndex);
 
   document.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
@@ -35,15 +23,15 @@ if (isTouchDevice) {
 
   document.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
-    const diffX = endX - startX;
+    const deltaX = endX - startX;
 
-    if (Math.abs(diffX) > 50) {
-      if (diffX < 0 && currentIndex < navLinks.length - 1) {
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0 && currentIndex < navLinks.length - 1) {
         currentIndex++;
-      } else if (diffX > 0 && currentIndex > 0) {
+      } else if (deltaX > 0 && currentIndex > 0) {
         currentIndex--;
       }
-      activateLink(currentIndex);
+      activateSlide(currentIndex);
     }
   });
 }
