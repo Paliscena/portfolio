@@ -91,15 +91,12 @@ nav a:hover img {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: black;
+    background-color: black;
   }
 
   nav {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     display: flex;
     flex-direction: row;
     overflow-x: auto;
@@ -114,6 +111,7 @@ nav a:hover img {
     height: 100vh;
     scroll-snap-align: start;
     position: relative;
+    overflow: hidden;
     background: black;
   }
 
@@ -121,20 +119,28 @@ nav a:hover img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 1;
     overflow: hidden;
+    transform: none !important;
+    scale: 1 !important;
   }
 
   nav a .img-wrapper img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     object-position: center;
     display: block;
     opacity: 1 !important;
     transform: none !important;
+    scale: 1 !important;
+    transition: none !important;
   }
 
   nav > a > span {
@@ -151,10 +157,11 @@ nav a:hover img {
     z-index: 10;
   }
 
-  /* Disable hover styles on mobile */
+  /* Remove hover effect for mobile */
   nav a:hover .img-wrapper,
   nav a:hover img {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
+    scale: 1 !important;
   }
 }
